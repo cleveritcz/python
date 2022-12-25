@@ -15,4 +15,4 @@ RUN microdnf update -y && microdnf clean all
 
 WORKDIR /app
 
-ENTRYPOINT ["python3.7"]
+ENTRYPOINT ["python3"]
