@@ -7,7 +7,8 @@ RUN microdnf install -y tar git wget gcc zlib-devel openssl-devel bzip2-devel gi
 
 RUN wget -qq https://www.python.org/ftp/python/3.11.1/Python-3.11.1.tgz && tar -xvf Python-3.11.1.tgz
 
-RUN mkdir ~/python3.11 && cd Python-3.11.1 && ./configure --enable-optimizations --prefix=/app/python3.11 && make && make install
+RUN mkdir ~/python3.11 && cd Python-3.11.1 && ./configure --enable-optimizations \
+    --with-ensurepip=install --prefix=/app/python3.11 && make && make install
 
 FROM base
 
