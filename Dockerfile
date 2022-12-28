@@ -18,4 +18,4 @@ RUN microdnf update -y && microdnf clean all
 
 WORKDIR /app
 
-ENTRYPOINT ["python3"]
+ENTRYPOINT ["/bin/bash"]
