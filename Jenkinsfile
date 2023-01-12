@@ -46,6 +46,6 @@ spec:
 
   }
   environment {
-    PYTHON_VERSION = '3.11.1'
+    PYTHON_VERSION='3.11.1'
   }
 }
