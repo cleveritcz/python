@@ -1,6 +1,6 @@
 FROM rockylinux:9-minimal as base
 
-ENV PYTHON_VERSION=3.11.1
+ENV PYTHON_VERSION
 
 # Builder
 FROM base as builder
