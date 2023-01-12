@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    node {
+    kubernetes {
       yaml '''
 kind: Pod
 metadata:
