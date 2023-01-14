@@ -1,5 +1,8 @@
 pipeline {
-  agent {
+  agent
+  environment { 
+    PYTHON_VERSION = '3.11.1'
+    } {
     kubernetes {
       yaml '''
 kind: Pod
