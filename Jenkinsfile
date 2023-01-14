@@ -14,8 +14,6 @@ spec:
     env:
      - name: container
        value: "docker"
-     - name: PYTHON_VERSION
-       value: $PYTHON_VERSION
     command:
      - /busybox/cat
     tty: true
