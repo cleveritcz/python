@@ -6,7 +6,7 @@ ARG PYTHON_VERSION
 FROM base as builder
 
 RUN echo -e "python:x:1000:" >> /etc/group && \
-    echo -e "python:x:1000:1000:python:/app:/bin/sh" >> /etc/passwd && \  
+    echo -e "python:x:1000:1000:python:/app:/usr/sbin/nologin" >> /etc/passwd && \  
     echo -e "python:*:19295:0:99999:7:::" >> /etc/shadow
 
 RUN microdnf install -y which findutils tar git wget gcc zlib-devel openssl-devel bzip2-devel git libffi-devel && \
@@ -22,8 +22,8 @@ RUN microdnf update -y && microdnf clean all
 
 COPY --from=builder /app/ /app/
 
-WORKDIR /app
-
 USER python
+
+WORKDIR /app
 
 ENTRYPOINT ["python3"]
