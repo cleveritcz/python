@@ -16,14 +16,13 @@ RUN microdnf install -y which findutils tar git wget gcc zlib-devel openssl-deve
 
 FROM base
 
-ENV PATH="/app/python${PYTHON_VERSION}/bin:$PATH"
-
 RUN microdnf update -y && microdnf clean all
 
 COPY --from=builder /app/ /app/
 
 USER python
 
+ENV PATH="/app/python${PYTHON_VERSION}/bin:$PATH"
 WORKDIR /app
 
 ENTRYPOINT ["python3"]
