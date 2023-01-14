@@ -14,6 +14,8 @@ spec:
     env:
      - name: container
        value: "docker"
+     - name: PYTHON_VERSION
+       value: $PYTHON_VERSION
     command:
      - /busybox/cat
     tty: true
@@ -38,7 +40,6 @@ spec:
     stage('Build') {
       steps {
         container(name: 'shell') {
-          echo $PYTHON_VERSION
           sh '/kaniko/executor --dockerfile `pwd`/Dockerfile --context `pwd` --destination=cleveritcz/python:$BRANCH_NAME'
         }
 
