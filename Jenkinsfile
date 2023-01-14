@@ -38,7 +38,7 @@ spec:
     stage('Build') {
       steps {
         container(name: 'shell') {
-          sh '/kaniko/executor --dockerfile `pwd`/Dockerfile --context `pwd` --destination=cleveritcz/python:$PYTHON_VERSION --destination=cleveritcz/python:$BRANCH_NAME --build-arg PYTHON_VERSION=$PYTHON_VERSION'
+          sh '/kaniko/executor --dockerfile `pwd`/Dockerfile --context `pwd` --destination=cleveritcz/python:$PYTHON_VERSION --destination=cleveritcz/python:3.7 --build-arg PYTHON_VERSION=$PYTHON_VERSION'
         }
 
       }
