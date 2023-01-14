@@ -13,7 +13,7 @@ RUN microdnf install -y which findutils tar clang git wget gcc llvm-devel zlib-d
 FROM base
 
 RUN echo -e "python:x:1000:" >> /etc/group && \
-    echo -e "python:x:1000:1000:python:/app:/bin/sh" >> /etc/passwd && \  
+    echo -e "python:x:1000:1000:python:/app:/usr/sbin/nologin" >> /etc/passwd && \  
     echo -e "python:*:19295:0:99999:7:::" >> /etc/shadow
 
 ENV PATH="/app/python$PYTHON_VERSION/bin:$PATH"
@@ -22,8 +22,8 @@ RUN microdnf update -y && microdnf clean all
 
 COPY --from=builder /app/ /app/
 
-WORKDIR /app
-
 USER python
+
+WORKDIR /app
 
 ENTRYPOINT ["python3"]
