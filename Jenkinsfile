@@ -35,13 +35,10 @@ spec:
 
   }
   stages {
-    stage('Build') {
-      environment { 
-        PYTHON_VERSION = '3.11.1'
-      }      
+    stage('Build') {    
       steps {
         container(name: 'shell') {
-          sh '/kaniko/executor --dockerfile `pwd`/Dockerfile --context `pwd` --destination=cleveritcz/python:$BRANCH_NAME'
+          sh '/kaniko/executor --dockerfile `pwd`/Dockerfile --context `pwd` --destination=cleveritcz/python:$BRANCH_NAME --build-arg PYTHON_VERSION=$PYTHON_VERSION'
         }
 
       }
